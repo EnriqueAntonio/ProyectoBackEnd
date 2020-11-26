@@ -29,6 +29,21 @@ public class PatologiaServicio {
 		return res;
 	}
 	
+	public ResponseDTO findbyId(Long id) {
+		ResponseDTO res=new ResponseDTO();
+		try {
+			res.setRespuesta(repositoriobd.findById(id));
+		}
+		catch(Exception e)
+		{
+			res.setCodigo(Messages.CODE_FATAL_ERROR);
+			res.setMensaje(Messages.MSG_FATAL_ERROR);
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
 	public ResponseDTO crear(Patologia patalogia) {
 		
 		ResponseDTO res= new ResponseDTO();
